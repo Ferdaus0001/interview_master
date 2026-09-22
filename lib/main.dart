@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:master_interview/screen/google_maps_screen.dart';
-import 'package:master_interview/screen/home_screen.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+import 'package:master_interview/screen/get_storage_screen.dart';
+
+void main() async{
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -16,10 +18,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:GoogleMapsScreen());
+      home:GetStorageScreen());
 
   }
 }
