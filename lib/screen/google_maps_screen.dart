@@ -64,15 +64,26 @@ Set<Circle> circle = {
      markerId: MarkerId('dhaka2'),
      position: LatLng(22.3569, 91.7832)
    )
-   
+
  };
- 
+
 class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
+  late GoogleMapController mapController ;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
 
       body: GoogleMap(
+  onMapCreated: (controller) {
+  mapController = controller;
+  controller.animateCamera(
+    CameraUpdate.newLatLng(
+       LatLng(22.3569, 91.7832),
+
+    ),
+
+  );
+},
 
           initialCameraPosition: CameraPosition(target: LatLng(lat, lon),
             zoom: 12,
